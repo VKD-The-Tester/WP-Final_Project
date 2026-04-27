@@ -11,16 +11,27 @@ const NavBar = () => {
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <HotelSharpIcon fontSize="large" />
-          {pages.map((page, index) => (
-            <Typography
-              onClick={() => navigate(`/${page}`)}
-              variant="h6"
-              sx={{ cursor: "pointer" }}
-              key={index}
-            >
-              {page}
-            </Typography>
-          ))}
+          {pages.map((page, index) =>
+            index === 0 ? (
+              <Typography
+                onClick={() => navigate("/")}
+                variant="h6"
+                sx={{ cursor: "pointer" }}
+                key={index}
+              >
+                {page}
+              </Typography>
+            ) : (
+              <Typography
+                onClick={() => navigate(`/${page}`)}
+                variant="h6"
+                sx={{ cursor: "pointer" }}
+                key={index}
+              >
+                {page}
+              </Typography>
+            ),
+          )}
         </Box>
       </Toolbar>
     </AppBar>
